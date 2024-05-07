@@ -1,5 +1,5 @@
 def gov_open_prop():
-   gov = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/gov/v1beta1/proposals')
+   gov = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/gov/v1beta1/proposals')
    data = gov.json()["proposals"]
    open_count = 0
    for i in data:
@@ -9,7 +9,7 @@ def gov_open_prop():
    return (open_count)
 
 def gov_deposit_prop():
-   gov = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/gov/v1beta1/proposals')
+   gov = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/gov/v1beta1/proposals')
    data = gov.json()["proposals"]
    deposit_count = 0
    for i in data:
@@ -19,7 +19,7 @@ def gov_deposit_prop():
 
 
 def pool()-> float:
-   pool = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/distribution/v1beta1/community_pool')
+   pool = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/distribution/v1beta1/community_pool')
    community_pool = pool.json()['pool'][2]['amount']
    return float(community_pool)
 
@@ -30,23 +30,23 @@ def price()-> float:
 
 
 def bonded_tokens() -> float:
-   tokens = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/staking/v1beta1/pool')
+   tokens = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/staking/v1beta1/pool')
    bonded_tokens = tokens.json()['pool']['bonded_tokens']
    return float(bonded_tokens)
 
 def unbonded_tokens():
-   tokens = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/staking/v1beta1/pool')
+   tokens = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/staking/v1beta1/pool')
    unbonded_tokens = tokens.json()['pool']['not_bonded_tokens']
    return (unbonded_tokens)
 
 def inflation() -> float:
-   inflation = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/mint/v1beta1/inflation')
+   inflation = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/mint/v1beta1/inflation')
    inflation_total = inflation.json()['inflation']
    return float(inflation_total)
 
 
 def supply() -> float:
-   supply = requests.get('https://lcd.cosmoshub-4.bronbro.io/cosmos/bank/v1beta1/supply/uatom')
+   supply = requests.get('https://api.cosmoshub-4.citizenweb3.com//cosmos/bank/v1beta1/supply/uatom')
    data = supply.json()['amount']['amount']
    return float(data)
 
